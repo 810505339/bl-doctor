@@ -1,0 +1,1036 @@
+{
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue",
+      "^com-(.*)": "@/components/com-$1/com-$1.vue"
+    }
+  },
+  "pages": [
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/myCenter/index",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/myCenter/index",
+      "style": {
+        "navigationBarTitleText": "关注医生",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/home/home",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/escort/escort-service/escort-service",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/login/register",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/login/agreement",
+      "style": {
+        "navigationBarTitleText": "协议",
+        "navigationBarBackgroundColor": "#3d9979",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/fundraising/fundraising",
+      "style": {
+        "navigationBarTitleText": "大病筹款",
+        "navigationBarBackgroundColor": "white",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/login/phone-login",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/login/loginin",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/login/forgetPassword",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/login/setPassword",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/examination/index/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/inspection/inspection",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/report/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/report/report/report",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/report/people-verificat/people-verificat",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/report/people-report/people-report",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/report/report-detail/report-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/package/package",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/package/package-detail/package-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/unscramble/unscramble",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/unscramble/unscramble-detail/unscramble-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/detail/information-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/examination/detail/examination-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/accompany/accompany-service/accompany-service",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "陪护服务",
+        "navigationBarBackgroundColor": "#3d9979",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/accompany/accompany-service-detail/accompany-service-detail",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "rgba(220, 241, 234, 1)",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/accompany/accompany-service-detail-two/accompany-service-detail-two",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "rgba(220, 241, 234, 1)",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/accompany/accompany-company-profile/accompany-company-profile",
+      "style": {
+        "navigationBarTitleText": "企业简介",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    },
+    {
+      "path": "pages/accompany/accompany-service-order/accompany-service-order",
+      "style": {
+        "navigationBarTitleText": "订单详情",
+        "navigationBarBackgroundColor": "#fff"
+      }
+    },
+    {
+      "path": "pages/escort/choose-people/choose-people",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/escort/pay-escort-service/pay-escort-service",
+      "style": {
+        "navigationBarTitleText": "预约陪诊服务",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/escort/wait-message/wait-message",
+      "style": {
+        "navigationBarTitleText": "陪诊服务",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/escort/substitute-handle/substitute-handle",
+      "style": {
+        "navigationBarTitleText": "代为办理",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/escort/appointment-accompany/appointment-accompany",
+      "style": {
+        "navigationBarTitleText": "预约陪诊",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/escort/activity-dec/activity-des",
+      "style": {
+        "navigationBarTitleText": "预约陪诊",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/escort/order-message/order-message",
+      "style": {
+        "navigationBarTitleText": "订单详情",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/escort/in-service/in-service",
+      "style": {
+        "navigationBarTitleText": "陪诊服务",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/setting",
+      "style": {
+        "navigationBarTitleText": "设置",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/accountSecurity",
+      "style": {
+        "navigationBarTitleText": "账号与安全",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/bindPhone",
+      "style": {
+        "navigationBarTitleText": "绑定手机号",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/checkPhone",
+      "style": {
+        "navigationBarTitleText": "验证手机号",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/aboutUs",
+      "style": {
+        "navigationBarTitleText": "关于我们",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/privacyAgreement",
+      "style": {
+        "navigationBarTitleText": "隐私协议",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/userAgreement",
+      "style": {
+        "navigationBarTitleText": "用户协议",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/feedback",
+      "style": {
+        "navigationBarTitleText": "意见反馈",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/complaints",
+      "style": {
+        "navigationBarTitleText": "投诉",
+        "navigationBarBackgroundColor": "#41ab85",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/funeral-mine/fixName",
+      "style": {
+        "navigationBarTitleText": "昵称",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/account/account/account-set",
+      "style": {
+        "navigationBarTitleText": "账号设置",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/account/account-bink/account-bink",
+      "style": {
+        "navigationBarTitleText": "银行卡",
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/account/account-bink/account-binkedit",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/mine-order/mine-order",
+      "style": {
+        "navigationBarTitleText": "我的-订单",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/medical/index",
+      "style": {
+        "navigationBarTitleText": "白龙医典",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/find-drugs",
+      "style": {
+        "navigationBarTitleText": "查药品",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/health",
+      "style": {
+        "navigationBarTitleText": "养生知识",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/find-virus",
+      "style": {
+        "navigationBarTitleText": "查疾病",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/virus-detail",
+      "style": {
+        "navigationBarTitleText": "疾病详情",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/drugs-second",
+      "style": {
+        "navigationBarTitleText": "药物查询",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/drugs-tertiary",
+      "style": {
+        "navigationBarTitleText": "药物查询",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/drugs-list",
+      "style": {
+        "navigationBarTitleText": "药物列表",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/drugs-details",
+      "style": {
+        "navigationBarTitleText": "药物详情",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/find-needle",
+      "style": {
+        "navigationBarTitleText": "查疫苗",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/needle-details",
+      "style": {
+        "navigationBarTitleText": "疫苗详情",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/health-detail",
+      "style": {
+        "navigationBarTitleText": "文章详情",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical/life",
+      "style": {
+        "navigationBarTitleText": "生活手册",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/d_and_t-subsidy/d_and_t-subsidy",
+      "style": {
+        "navigationBarTitleText": "诊疗补贴",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/d_and_t-subsidy/reading",
+      "style": {
+        "navigationBarTitleText": "注意事项",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/d_and_t-subsidy/fill_form/fill_form",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/d_and_t-subsidy/sumbit_success",
+      "style": {
+        "navigationBarTitleText": "提交成功",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/d_and_t-subsidy/subsidy_progress",
+      "style": {
+        "navigationBarTitleText": "补贴进度",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/zjwz/zjhz/index",
+      "style": {
+        "navigationBarTitleText": "专家会诊",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/zjhz/clinicChat",
+      "style": {
+        "navigationBarTitleText": "会诊群",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/zjhz/singleRoom",
+      "style": {
+        "navigationBarTitleText": "医生咨询",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/zjhz/estimate",
+      "style": {
+        "navigationBarTitleText": "服务评价",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "提交",
+                "fontSize": "14",
+                "color": "#41AB85"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/zjwz/zjhz/toOrder",
+      "style": {
+        "navigationBarTitleText": "订单详情",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/zjhz/order",
+      "style": {
+        "navigationBarTitleText": "订单详情",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/index",
+      "style": {
+        "navigationBarTitleText": "专家问诊",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/quick-consultation",
+      "style": {
+        "navigationBarTitleText": "极速问诊",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/add-patient",
+      "style": {
+        "navigationBarTitleText": "患者信息",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/select-doctor",
+      "style": {
+        "navigationBarTitleText": "选择医生",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/upload-case",
+      "style": {
+        "navigationBarTitleText": "添加病例",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "保存",
+                "fontSize": "14",
+                "color": "#000000"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/medical-history",
+      "style": {
+        "navigationBarTitleText": "相关就诊史",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "提交",
+                "fontSize": "14",
+                "color": "#000000",
+                "font-weight": "bold"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/select-patient",
+      "style": {
+        "navigationBarTitleText": "选择问诊患者",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "新增",
+                "fontSize": "14",
+                "color": "#000000"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/zjwz/jswz/select-coupon",
+      "style": {
+        "navigationBarTitleText": "选择优惠券",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/select-hospital/select-hospital",
+      "style": {
+        "navigationBarTitleText": "选择医院",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/hospital-service/hospital-service",
+      "style": {
+        "navigationBarTitleText": "找医院",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/hospital-service/hospital-info",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "rgba(65, 171, 133, 1)"
+      }
+    },
+    {
+      "path": "pages/hospital-service/hospital-map",
+      "style": {
+        "navigationBarTitleText": "查看路线",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/mourning-culture/mourning-culture",
+      "style": {
+        "navigationBarTitleText": "“孝”文化",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/mourning-culture/mourning-index",
+      "style": {
+        "navigationBarBackgroundColor": "rgba(224, 203, 119, 1)",
+        "app-plus": {
+          "bounce": "none",
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "订单",
+                "fontSize": "16",
+                "float": "right",
+                "color": "#fff"
+              }
+            ],
+            "searchInput": {
+              "align": "left",
+              "placeholder": "请输入搜索内容",
+              "borderRadius": "50rpx",
+              "backgroundColor": "#fff"
+            }
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/mourning-culture/mourning-infor",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationBarBackgroundColor": "rgba(224, 203, 119, 1)"
+      }
+    },
+    {
+      "path": "pages/mourning-culture/mourning-business",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/home/tabs",
+      "style": {
+        "navigationBarTitleText": "榜单",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/home/search",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/account/account-wechat/account-wechat",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/account-number/account-number",
+      "style": {
+        "navigationBarTitleText": "切换账号",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/account-verification/account-verification",
+      "style": {
+        "navigationBarTitleText": "指纹/面容解锁",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/account-individualization/account-individualization",
+      "style": {
+        "navigationBarTitleText": "个性化推荐",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/account-sos/account-sos",
+      "style": {
+        "navigationBarTitleText": "SOS急救模式",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/account-phonenum/account-phonenum",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/account/account-phonenum/account-changesuccess",
+      "style": {
+        "navigationBarTitleText": "关于我们",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/notify",
+      "style": {
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTitleText": "消息通知"
+      }
+    },
+    {
+      "path": "pages/my/aboutour",
+      "style": {
+        "navigationBarTitleText": "关于我们",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/medical-records/medical-records",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false,
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/medical-records/add-medical",
+      "style": {
+        "navigationStyle": "custom",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/account-phonenum/account-register",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/account/account-alipay/account-alipay",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/addressmange",
+      "style": {
+        "navigationBarTitleText": "地址管理",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/addressedit",
+      "style": {
+        "navigationBarTitleText": "编辑收货人",
+        "enablePullDownRefresh": false,
+        "app-plus": {
+          "titleNView": {
+            "buttons": [
+              {
+                "text": "删除",
+                "float": "right",
+                "fontSize": "16px"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "path": "pages/my/my",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my/my-wallet",
+      "style": {
+        "navigationBarTitleText": "补贴钱包",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/becomeservicepro",
+      "style": {
+        "navigationBarTitleText": "成为服务商",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/surveyend",
+      "style": {
+        "navigationBarTitleText": "用户调研",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/mydoctor",
+      "style": {
+        "navigationBarTitleText": "关注医生",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/surveystart",
+      "style": {
+        "navigationBarTitleText": "用户调研",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/surveing",
+      "style": {
+        "navigationBarTitleText": "用户调研",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/questionone",
+      "style": {
+        "navigationBarTitleText": "常见问题",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/questiontwo",
+      "style": {
+        "navigationBarTitleText": "常见问题",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/mycoupon",
+      "style": {
+        "navigationBarTitleText": "优惠券",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/mycouponuse",
+      "style": {
+        "navigationBarTitleText": "选择医生",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/reward",
+      "style": {
+        "navigationBarTitleText": "奖励",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/myopinion",
+      "style": {
+        "navigationBarTitleText": "诊断意见",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/my-appointment",
+      "style": {
+        "navigationBarTitleText": "挂号记录",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/my/myconsulting",
+      "style": {
+        "navigationBarTitleText": "预约挂号订单",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/doctor/index",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/become-companion/become-companion",
+      "style": {
+        "navigationBarTitleText": "华龙服务入驻陪诊协议",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/realname-accompaying/realname-accompaying",
+      "style": {
+        "navigationBarTitleText": "实名认证",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/realname-accompaying/result",
+      "style": {
+        "navigationBarTitleText": "实名认证",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "rgba(65, 171, 133, 1)",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/doctor/index",
+        "iconPath": "static/doctor/图标 9.svg",
+        "selectedIconPath": "static/doctor/图标 11.svg"
+      },
+      {
+        "text": "咨询消息",
+        "pagePath": "pages/doctor/index2",
+        "iconPath": "static/doctor/图标 9 (1).svg",
+        "selectedIconPath": "static/icon/home-active.png"
+      },
+      {
+        "text": "我",
+        "pagePath": "pages/doctor/index3",
+        "iconPath": "static/doctor/图标 9.svg",
+        "selectedIconPath": "static/icon/home-active.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+/* eslint-disable */
+var provinceData = [{
+  "test": "北京",
+  "value": "11"
+}, {
+  "test": "天津",
+  "value": "12"
+}, {
+  "test": "河北省",
+  "value": "13"
+}, {
+  "test": "山西省",
+  "value": "14"
+}, {
+  "test": "内蒙古自治区",
+  "value": "15"
+}, {
+  "test": "辽宁省",
+  "value": "21"
+}, {
+  "test": "吉林省",
+  "value": "22"
+}, {
+  "test": "黑龙江省",
+  "value": "23"
+}, {
+  "test": "上海",
+  "value": "31"
+}, {
+  "test": "江苏省",
+  "value": "32"
+}, {
+  "test": "浙江省",
+  "value": "33"
+}, {
+  "test": "安徽省",
+  "value": "34"
+}, {
+  "test": "福建省",
+  "value": "35"
+}, {
+  "test": "江西省",
+  "value": "36"
+}, {
+  "test": "山东省",
+  "value": "37"
+}, {
+  "test": "河南省",
+  "value": "41"
+}, {
+  "test": "湖北省",
+  "value": "42"
+}, {
+  "test": "湖南省",
+  "value": "43"
+}, {
+  "test": "广东省",
+  "value": "44"
+}, {
+  "test": "广西壮族自治区",
+  "value": "45"
+}, {
+  "test": "海南省",
+  "value": "46"
+}, {
+  "test": "重庆",
+  "value": "50"
+}, {
+  "test": "四川省",
+  "value": "51"
+}, {
+  "test": "贵州省",
+  "value": "52"
+}, {
+  "test": "云南省",
+  "value": "53"
+}, {
+  "test": "西藏自治区",
+  "value": "54"
+}, {
+  "test": "陕西省",
+  "value": "61"
+}, {
+  "test": "甘肃省",
+  "value": "62"
+}, {
+  "test": "青海省",
+  "value": "63"
+}, {
+  "test": "宁夏回族自治区",
+  "value": "64"
+}, {
+  "test": "新疆维吾尔自治区",
+  "value": "65"
+}]
+
+export default provinceData;
