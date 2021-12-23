@@ -5,6 +5,7 @@ export const setStorage = (data) => {
 }
 
 export const getStorage = () => {
+  console.log(uni)
   return uni.getStorageSync(token)
 }
 

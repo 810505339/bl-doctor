@@ -150,6 +150,10 @@
 
 <script>
 
+import {uploadUrl} from "../../utils/request";
+import {url} from '@api/funeral'
+import { getStorage } from '@/utils/cookies'
+
 export default {
   name: "shop",
 
@@ -177,10 +181,11 @@ export default {
     deletePic(event) {
       this[`fileList${event.name}`].splice(event.index, 1);
     },
-   async afterRead(){
+   async afterRead(event){
       // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
       let lists = [].concat(event.file);
       let fileListLen = this[`fileList${event.name}`].length;
+     console.log(fileListLen)
       lists.map((item) => {
         this[`fileList${event.name}`].push({
           ...item,
@@ -202,6 +207,34 @@ export default {
         );
         fileListLen++;
       }
+    },
+    async uploadFilePromise(urls){
+      return new Promise((resolve, reject) => {
+
+        uni.uploadFile({
+          url: uploadUrl(url.uploadImg),
+          filePath:urls,
+          name: 'file',
+          header: {
+            Authorized: getStorage()
+          },
+          success: (uploadFileRes) => {
+            if (uploadFileRes.statusCode === 200) {
+              const { data } = JSON.parse(uploadFileRes.data);
+              resolve(data.url)
+
+            } else {
+              this.$u.toast('上传图片失败，请重试');
+            }
+          },
+          fail(err) {
+            this.$u.toast(JSON.stringify(err));
+          }
+        })
+
+      })
+
+
     },
 
 
