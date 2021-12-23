@@ -15,7 +15,6 @@ const url = {
 	doctorComment:'/api/users/doctor/comment',//  post  提交评论
 	getCaseType:'/api/users/patient_see/case_type',//  get   病例类型
 	addPatientCase:'/api/users/patient_case/add',//		 post   添加病例
-	doctorDetail:'/api/users/doctor/detail',//		 get   id
 	consultation_order:'/api/users/doctor/consultation_order',// post   添加订单
 	accompanying:'/api/users/accompanying/detail' ,//get   陪诊订单详情  order_sn   订单号
 	sel_coupon:'/api/users/doctor/sel_coupon' //post   选择优惠券order_sn   订单号 coupon_id   优惠券id

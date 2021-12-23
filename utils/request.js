@@ -1,6 +1,6 @@
 import { getStorage } from './cookies'
 
-const BASE_URL = 'http://service-white-gragon.ascetic.top'
+const BASE_URL = 'https://service-white-gragon.ascetic.top'
 // const BASE_URL = 'http://xw7sg3.natappfree.cc'
 // const BASE_URL = 'http://he2jqq.natappfree.cc'
  // const BASE_URL = 'http://8756nf.natappfree.cc'

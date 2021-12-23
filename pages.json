@@ -1001,6 +1001,22 @@
         "navigationBarTextStyle": "black",
         "navigationBarBackgroundColor": "#FFFFFF"
       }
+    },
+    {
+      "path": "pages/funeral/index",
+      "style": {
+        "navigationBarTitleText": "殡葬服务入驻",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral/shop",
+      "style": {
+        "navigationBarTitleText": "店铺信息",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
     }
   ],
   "globalStyle": {
