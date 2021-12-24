@@ -10,7 +10,10 @@
     <view>
         <view>加入白龙认证殡葬服务</view>
         <view>上传内容我们会为您绝对保密！</view>
-      <u-form labelPosition="top">
+      <u-form labelPosition="top"
+              :rules="rules"
+              :model="shop"
+      >
         <u-form-item
             label="姓名"
             prop="userInfo.name"
@@ -92,9 +95,13 @@
         >
           <u--input
               v-model="shop.store_address"
-              placeholder="请输入店铺地址"
+              placeholder="请选择店铺地址"
               border="none"
+              disabled
+              @click.native="addressClick"
           ></u--input>
+
+          <u-picker :show="show"  :columns="list" ref="city"  keyName="label"   @change="change"   @cancel="show=false"  @confirm="confirm"  />
         </u-form-item>
         <u-form-item
             label="门牌号"
@@ -122,7 +129,7 @@
               @delete="deletePic"
               name="3"
               multiple
-              :maxCount="10"
+              :maxCount="1"
           />
 
 
@@ -152,7 +159,12 @@
 
 import {uploadUrl} from "../../utils/request";
 import {url} from '@api/funeral'
-import { getStorage } from '@/utils/cookies'
+import {getStorage} from '@/utils/cookies'
+import city from '@/utils/city-uview'
+import area from '@/utils/area'
+import province from '@/utils/province'
+
+console.log([province,city[0],area[0][0]])
 
 export default {
   name: "shop",
@@ -172,9 +184,48 @@ export default {
       fileList1:[],
       fileList2:[],
       fileList3:[],
-      img:require('@/static/funeral/upload.png')
+      img:require('@/static/funeral/upload.png'),
+      rules:{
+        name:{
+          type: 'string',
+          required: true,
+          message: '请填写姓名',
+          trigger: ['blur', 'change']
+        },
+        mobile:{
+          type: 'string',
+          required: true,
+          message: '请填写电话',
+          trigger: ['blur', 'change']
+        },
+        store_address:{
+          type: 'string',
+          required: true,
+          message: '请填写店铺地址',
+          trigger: ['blur', 'change']
+        },
+        house_number:{
+          type: 'string',
+          required: true,
+          message: '请填写门牌号',
+          trigger: ['blur', 'change']
+        },
+        store_name:{
+          type: 'string',
+          required: true,
+          message: '请填写门店名称',
+          trigger: ['blur', 'change']
+        },
+
+
+      },
+      show:false,
+      city: city[0],
+      areas: area[0][0],
+      list:[province,city[0],area[0][0]]
     }
   },
+
   methods:{
 
     // 删除图片
@@ -236,11 +287,40 @@ export default {
 
 
     },
+    change(e){
+
+      const {
+        columnIndex,
+        value,
+        values, // values为当前变化列的数组内容
+        index,
+        // 微信小程序无法将picker实例传出来，只能通过ref操作
+        picker = this.$refs['city']
+      } = e
+      // 当第一列值发生变化时，变化第二列(后一列)对应的选项
+      if (columnIndex === 0) {
+        // picker为选择器this实例，变化第二列对应的选项
+        this.index=index;
+        picker.setColumnValues(1,city[index])
+        picker.setColumnValues(2,area[this.index][0])
+      }
+
+      if (columnIndex === 1) {
+        // picker为选择器this实例，变化第二列对应的选项
+        console.log(city[index])
+        picker.setColumnValues(2,area[this.index][index])
+      }
 
 
+    },
+    confirm({value}){
+      this.shop.store_address=value.map(item => item.label).join('-')
+      this.show=false
 
-
-
+    },
+    addressClick(){
+      this.show=true
+    },
     submit(){
 
     }
@@ -260,8 +340,11 @@ export default {
 }
 
 .funeral-shop{
-  background: #ffffff;
-  padding:0 34rpx;
+  background: #ffffff ;
+  padding:0 34rpx ;
+  /deep/.u-input{
+    background: none !important;
+  }
 }
 .idNumber-warp{
   display: flex;
