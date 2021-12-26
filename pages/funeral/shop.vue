@@ -10,15 +10,18 @@
     <view>
         <view>加入白龙认证殡葬服务</view>
         <view>上传内容我们会为您绝对保密！</view>
-      <u-form labelPosition="top"
+      <u--form labelPosition="top"
               :rules="rules"
               :model="shop"
+              ref="form"
+              :error-type="['toast']"
       >
         <u-form-item
             label="姓名"
-            prop="userInfo.name"
+            prop="name"
             borderBottom
             ref="item1"
+            labelWidth="120"
         >
           <u--input
               v-model="shop.name"
@@ -28,10 +31,10 @@
         </u-form-item>
         <u-form-item
             label="联系电话"
-            prop="userInfo.mobile"
+            prop="mobile"
             borderBottom
             ref="item1"
-            labelWidth="70"
+            labelWidth="120"
         >
           <u--input
               v-model="shop.mobile"
@@ -41,11 +44,11 @@
         </u-form-item>
         <u-form-item
             label="身份证号"
-            prop="userInfo.id_number"
+            prop="id_number"
             borderBottom
 
             ref="item1"
-            labelWidth="70"
+            labelWidth="120"
         >
           <u--input
               v-model="shop.id_number"
@@ -55,8 +58,6 @@
         </u-form-item>
         <u-form-item
             label="二代身份证照片"
-            prop="userInfo.name"
-
             ref="item1"
             labelWidth="120"
         >
@@ -88,10 +89,10 @@
         </u-form-item>
         <u-form-item
             label="店铺地址"
-            prop="userInfo.store_address "
+            prop="store_address"
             borderBottom
             ref="item1"
-            labelWidth="70"
+            labelWidth="120"
         >
           <u--input
               v-model="shop.store_address"
@@ -105,10 +106,10 @@
         </u-form-item>
         <u-form-item
             label="门牌号"
-            prop="userInfo.house_number"
+            prop="house_number"
             borderBottom
             ref="item1"
-            labelWidth="70"
+            labelWidth="120"
         >
           <u--input
               v-model="shop.house_number"
@@ -118,10 +119,10 @@
         </u-form-item>
         <u-form-item
             label="门脸图"
-            prop="userInfo.front_figure"
+            prop="front_figure"
 
             ref="item1"
-            labelWidth="70"
+            labelWidth="120"
         >
           <u-upload
               :fileList="fileList3"
@@ -136,10 +137,10 @@
         </u-form-item>
         <u-form-item
             label="门店名称"
-            prop="userInfo.store_name"
+            prop="store_name"
             borderBottom
             ref="item1"
-            labelWidth="70"
+            labelWidth="120"
         >
           <u--input
               v-model="shop.store_name"
@@ -147,7 +148,7 @@
               placeholder="请输入门店名称"
           ></u--input>
         </u-form-item>
-      </u-form>
+      </u--form>
     </view>
     <view class="btn-wrap">
       <u-button @click="submit" class="btn">下一步</u-button>
@@ -201,7 +202,7 @@ export default {
         store_address:{
           type: 'string',
           required: true,
-          message: '请填写店铺地址',
+          message: '请选择店铺地址',
           trigger: ['blur', 'change']
         },
         house_number:{
@@ -216,6 +217,13 @@ export default {
           message: '请填写门店名称',
           trigger: ['blur', 'change']
         },
+        id_number:{
+          type: 'string',
+          required: true,
+          message: '请填写身份证号',
+          trigger: ['blur', 'change']
+        },
+
 
 
       },
@@ -322,7 +330,9 @@ export default {
       this.show=true
     },
     submit(){
-
+      this.$refs.form.validate().then(res=>{
+        console.log(res)
+      })
     }
   }
 

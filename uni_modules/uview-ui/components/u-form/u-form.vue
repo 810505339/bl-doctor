@@ -70,6 +70,7 @@
 		},
 		computed: {
 			propsChange() {
+
 				return [
 					this.errorType,
 					this.borderBottom,
