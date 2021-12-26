@@ -335,7 +335,14 @@ export default {
         store_name:'',
         front_figure:'',
         id_card_img:['',''],
-
+        registration_number:'',
+        qualification_name:'',
+        legal_person:'',
+        domicile:'',
+        certificate_expiry_date:'',
+        established_time:'',
+        registration_authority:'',
+        approval_date:'',
 
 
       },
