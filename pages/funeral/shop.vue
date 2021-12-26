@@ -401,7 +401,7 @@ export default {
       city: city[0],
       areas: area[0][0],
       list:[province,city[0],area[0][0]],
-      current:0
+      current:1
     }
   },
 
