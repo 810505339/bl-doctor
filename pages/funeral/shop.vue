@@ -1,13 +1,13 @@
 <template>
   <view class="funeral-shop">
     <u-steps
-        current="0" activeColor="#41ab85" inactiveColor="#a6a6a6">
+        :current="current" activeColor="#41ab85" inactiveColor="#a6a6a6">
       <u-steps-item title="店铺信息" ></u-steps-item>
       <u-steps-item title="资质信息" ></u-steps-item>
       <u-steps-item title="人脸识别" ></u-steps-item>
       <u-steps-item title="通过验证" ></u-steps-item>
     </u-steps>
-    <view>
+    <view v-show="current===0">
         <view>加入白龙认证殡葬服务</view>
         <view>上传内容我们会为您绝对保密！</view>
       <u--form labelPosition="top"
@@ -60,6 +60,8 @@
             label="二代身份证照片"
             ref="item1"
             labelWidth="120"
+            prop="id_card_img"
+
         >
        <view class="idNumber-warp">
          <u-upload
@@ -120,7 +122,6 @@
         <u-form-item
             label="门脸图"
             prop="front_figure"
-
             ref="item1"
             labelWidth="120"
         >
@@ -137,6 +138,159 @@
         </u-form-item>
         <u-form-item
             label="门店名称"
+            prop="store_name"
+            borderBottom
+            ref="item1"
+            labelWidth="120"
+        >
+          <u--input
+              v-model="shop.store_name"
+              border="none"
+              placeholder="请输入门店名称"
+          ></u--input>
+        </u-form-item>
+      </u--form>
+    </view>
+    <view v-show="current===1">
+      <u--form labelPosition="top"
+               :rules="rules"
+               :model="shop"
+               ref="form"
+               :error-type="['toast']"
+      >
+        <u-form-item
+            label="资格证书"
+            prop="name"
+            borderBottom
+            ref="item1"
+            labelWidth="120"
+        >
+          <u--input
+              v-model="shop.name"
+              placeholder="请输入姓名"
+              border="none"
+          ></u--input>
+        </u-form-item>
+        <u-form-item
+            label="注册号/统一社会信用代码"
+            prop="mobile"
+            borderBottom
+            ref="item1"
+            labelWidth="120"
+        >
+          <u--input
+              v-model="shop.mobile"
+              border="none"
+              placeholder="请输入联系电话"
+          ></u--input>
+        </u-form-item>
+        <u-form-item
+            label="名称"
+            prop="id_number"
+            borderBottom
+
+            ref="item1"
+            labelWidth="120"
+        >
+          <u--input
+              v-model="shop.id_number"
+              placeholder="请输入身份证号"
+              border="none"
+          ></u--input>
+        </u-form-item>
+        <u-form-item
+            label="法定代表人/经营者"
+            ref="item1"
+            labelWidth="120"
+            prop="id_card_img">
+          <view class="idNumber-warp">
+            <u-upload
+                :fileList="fileList1"
+                @afterRead="afterRead"
+                @delete="deletePic"
+                name="1"
+                multiple
+                :maxCount="1"
+                action="链接地址"
+
+            />
+            <view>人像面</view>
+          </view>
+          <view class="idNumber-warp">
+            <u-upload
+                :fileList="fileList2"
+                @afterRead="afterRead"
+                @delete="deletePic"
+                name="2"
+                multiple
+                :maxCount="1"
+                action="链接地址"
+            />
+            <view>国徽面</view>
+          </view>
+        </u-form-item>
+        <u-form-item
+            label="经营场所/住所"
+            prop="store_address"
+            borderBottom
+            ref="item1"
+            labelWidth="120"
+        >
+          <u--input
+              v-model="shop.store_address"
+              placeholder="请选择店铺地址"
+              border="none"
+              disabled
+              @click.native="addressClick"
+          ></u--input>
+
+          <u-picker :show="show"  :columns="list" ref="city"  keyName="label"   @change="change"   @cancel="show=false"  @confirm="confirm"  />
+        </u-form-item>
+        <u-form-item
+            label="执照有效期"
+            prop="house_number"
+            borderBottom
+            ref="item1"
+            labelWidth="120"
+        >
+          <u--input
+              v-model="shop.house_number"
+              border="none"
+              placeholder="请输入门牌号"
+          ></u--input>
+        </u-form-item>
+        <u-form-item
+            label="注册/成立时间"
+            prop="front_figure"
+            ref="item1"
+            labelWidth="120"
+        >
+          <u-upload
+              :fileList="fileList3"
+              @afterRead="afterRead"
+              @delete="deletePic"
+              name="3"
+              multiple
+              :maxCount="1"
+          />
+
+
+        </u-form-item>
+        <u-form-item
+            label="发证/登记机关"
+            prop="store_name"
+            borderBottom
+            ref="item1"
+            labelWidth="120"
+        >
+          <u--input
+              v-model="shop.store_name"
+              border="none"
+              placeholder="请输入门店名称"
+          ></u--input>
+        </u-form-item>
+        <u-form-item
+            label="核准日期"
             prop="store_name"
             borderBottom
             ref="item1"
@@ -179,6 +333,9 @@ export default {
         store_address:'',
         house_number:'',
         store_name:'',
+        front_figure:'',
+        id_card_img:['',''],
+
 
 
       },
@@ -223,6 +380,19 @@ export default {
           message: '请填写身份证号',
           trigger: ['blur', 'change']
         },
+        front_figure:{
+          type: 'string',
+          required: true,
+          message: '请上传门脸图',
+          trigger: ['blur', 'change']
+        },
+        id_card_img:{
+          type:'array',
+          required: true,
+          validator: (rule, value, callback) => value.every(item=>item!==''),
+          message: '请上传身份证',
+          trigger: ['blur', 'change']
+        }
 
 
 
@@ -230,12 +400,12 @@ export default {
       show:false,
       city: city[0],
       areas: area[0][0],
-      list:[province,city[0],area[0][0]]
+      list:[province,city[0],area[0][0]],
+      current:0
     }
   },
 
   methods:{
-
     // 删除图片
     deletePic(event) {
       this[`fileList${event.name}`].splice(event.index, 1);
@@ -330,9 +500,38 @@ export default {
       this.show=true
     },
     submit(){
-      this.$refs.form.validate().then(res=>{
-        console.log(res)
+      switch (this.current)
+      {
+        case 0:
+          this.from1Validate()
+              break
+      }
+    },
+    from1Validate(){
+      this.$refs.form.validate().then(res=> {
+        this.current=res?1:0
       })
+    },
+
+  },
+  watch:{
+    fileList1:{
+      deep:true,
+      handler(nVal){
+        this.shop.id_card_img[0]= nVal.length===0?'':nVal[0]?.url
+      }
+    },
+    fileList2:{
+      deep:true,
+      handler(nVal){
+        this.shop.id_card_img[1]= nVal.length===0?'':nVal[0]?.url
+      }
+    },
+    fileList3:{
+      deep:true,
+      handler(nVal){
+          this.shop.front_figure= nVal.length===0?'':nVal[0]?.url
+      }
     }
   }
 
