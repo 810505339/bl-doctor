@@ -1017,6 +1017,14 @@
         "navigationBarTextStyle": "black",
         "navigationBarBackgroundColor": "#FFFFFF"
       }
+    },
+    {
+      "path": "pages/funeral/worker",
+      "style": {
+        "navigationBarTitleText": "店铺信息",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
     }
   ],
   "globalStyle": {
