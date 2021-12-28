@@ -16,24 +16,70 @@
       <view class="worker-tabs">
         <u-tabs :list="tabsList"  lineColor="#41ab85" @click="tabClick"/>
       </view>
-      <order-item/>
+     <view class="nav-list-wrap">
+        <view v-for="(nav,index) in navList" class="nav-item" @click="navClick(index,nav)" :class="{active:navIndex===index}">{{nav.title}}</view>
+     </view>
+     <view v-for="order in shop_order_info" :key="order.id">
+       <order-item :order="order"/>
+     </view>
+
    </view>
 </template>
 
 <script>
 import OrderItem from "./order-item";
+import {url} from '@api/funeral';
 export default {
   name: "worker",
   components: {OrderItem},
   data(){
     return{
-      tabsList:[{name:'进行中'},{name:'历史单'},{name:'预定单'}]
+      params:{
+        order_type:0,
+        order_status:''
+      },
+      tabsList:[
+          {name:'进行中',order_type:0},
+          {name:'历史单',order_type:1},
+          {name:'预定单',order_type:2}
+      ],
+      navList:[
+          {title:'全部',order_status:''},
+          {title: '待接单',order_status:1},
+          {title:'带出单',order_status:2},
+      ],
+      navIndex:0,
+      shop_order_info:[]
+
     }
   },
   methods:{
-    tabClick(){
+    tabClick(e){
+      this.params.order_type=e.order_type
+    },
+   async orderApi(){
 
+     const {data}= await this.$axios({url:url.order,data:{...this.params},method:'post'})
+     this.shop_order_info=data.shop_order_info
+    },
+    navClick(i,nav){
+      this.navIndex=i
+      this.params.order_status=nav.order_status
     }
+  },
+  watch:{
+    params:{
+      deep:true,
+      handler(nVal){
+
+
+          this.orderApi()
+
+      }
+    }
+  },
+  onLoad(){
+    this.orderApi()
   }
 }
 </script>
@@ -64,5 +110,27 @@ export default {
 /deep/ .u-tabs{
   width: 60vw;
   font-weight: bold;
+}
+.nav-list-wrap{
+  display: flex;
+  padding-top: 20rpx;
+
+  .nav-item{
+    background: #FFFFFF;
+    color:#383838;
+    margin: 0 10rpx;
+    width: 160rpx;
+    height: 60rpx;
+    text-align: center;
+    border-radius: 40rpx;
+    border: rgba(229, 229, 229, 1) solid 2px;
+    box-sizing: border-box;
+
+
+  }
+  .active{
+    background: #d6efe6;
+    border-color: #41ab85;
+  }
 }
 </style>
