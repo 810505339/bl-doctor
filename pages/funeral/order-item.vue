@@ -4,12 +4,12 @@
         <view>
           <view class="order-header">
             <view>
-              #<text class="num">01</text>
+              #<text class="num">0{{index+1}}</text>
             </view>
             <view>
               <u-button class="order-btn" shape="circle" v-if="
               order.order_status===1
-              || order.order_status===2">{{btnText}}</u-button>
+              || order.order_status===2"   @click="btn">{{btnText}}</u-button>
 
              <view v-else>
                {{btnText}}
@@ -44,7 +44,7 @@
           </view>
 
           <view  class="context-img">
-            <u-button class="order-btn" shape="circle">准备完成</u-button>
+            <u-button class="order-btn" shape="circle" @click="ready">准备完成</u-button>
           </view>
         </view>
         <view class="order-list-wrap">
@@ -53,17 +53,19 @@
             <text class="text">{{order.order_note}}</text>
           </view>
           <view class="order-list-title">{{order.goods_info.length}}件商品</view>
-          <view class="shop-list">
+          <view class="shop-list" :class="{over:order.open}">
               <view class="shop-item" v-for=" goods in order.goods_info" :key="goods.goods_id">
                 <text>{{goods.shop_name}}</text>
                 <text>*{{goods.goods_num}}</text>
                 <text>￥{{goods.goods_price}}</text>
               </view>
             <view class="shop-item">
+              <view>小计</view>
+              <view>￥{{total}}</view>
             </view>
           </view>
-          <view class="open-wrap">
-            <text class="open">展开完整订单</text>
+          <view class="open-wrap" @click="open">
+            <text class="open">{{openText}}</text>
             <u-icon name="arrow-up" size="18"/>
           </view>
         </view>
@@ -72,10 +74,10 @@
 </template>
 
 <script>
-
+import {url} from '@api/funeral'
 export default {
   name: "order-item",
-  props:['order'],
+  props:['order','index'],
   data(){
     return{
       line:require('@/static/funeral/line.svg'),
@@ -85,7 +87,6 @@ export default {
   computed:{
     btnText(){
       let text=''
-      console.log(this.order.order_status)
      switch (this.order.order_status)
      {
        case 0:
@@ -106,6 +107,75 @@ export default {
      }
     return text
 
+    },
+    total(){
+      let total=0
+      this.order.goods_info.map(item=> total+=item.goods_num*item.goods_price)
+      return  total
+    },
+    openText(){
+      return  this.order.open?'收起':'展开完整订单'
+    },
+
+
+
+  },
+  methods:{
+    open(){
+
+      this.order.open=!this.order.open
+    },
+    //出单
+    async orderOutApi(){
+     const {data,code}= await this.$axios({url:url.orderOut,data:{
+         order_sn:this.order.order_sn
+       },method:'post'})
+
+      if(code===1)
+      {
+        this.order.order_status=3
+      }
+
+    },
+    //订单完成
+    async orderReadyApi(){
+      console.log(this.order.order_sn)
+      const {data,code}= await this.$axios({url:url.orderReady,method:'post',data:{
+          order_sn:this.order.order_sn
+        }})
+
+      if(code===1)
+      {
+        this.order.order_sn=3
+      }
+
+    },
+    //接单
+    async orderReceivingApi(){
+      const {data,code}= await this.$axios({url:url.orderReceiving,method:'post',data:{
+          order_sn:this.order.order_sn
+        }})
+
+      if(code===1)
+      {
+        this.order.order_status=2
+      }
+
+    },
+   async btn()
+    {
+            if(this.order.order_status===1)
+            {
+           await   this.orderReceivingApi()
+            }
+
+            if(this.order.order_status===2)
+            {
+            await  this.orderOutApi()
+            }
+    },
+    async ready(){
+     await this.orderReadyApi()
     }
   }
 
@@ -212,6 +282,9 @@ export default {
       padding: 10rpx 0;
     }
     .shop-list{
+      height: 144rpx;
+      overflow: hidden;
+
       .shop-item{
         display: flex;
         align-items: center;
@@ -220,12 +293,17 @@ export default {
       padding-bottom: 10rpx;
       border-bottom: 1px dashed #999999;
     }
+    .over{
+      overflow: auto;
+      height:auto;
+    }
   }
   .open-wrap{
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 20rpx;
     .open{
       margin-right: 20rpx;
     }

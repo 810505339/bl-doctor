@@ -19,19 +19,24 @@
      <view class="nav-list-wrap">
         <view v-for="(nav,index) in navList" class="nav-item" @click="navClick(index,nav)" :class="{active:navIndex===index}">{{nav.title}}</view>
      </view>
-     <view v-for="order in shop_order_info" :key="order.id">
-       <order-item :order="order"/>
+     <view  class="loading-wrap" v-if="loading" >
+       <u-loading-icon  mode="circle"/>
      </view>
-
+     <view v-if="!shop_order_info &&!loading"     class="on-more">暂无更多</view>
+     <view  v-if="!loading" v-for="(order,index) in shop_order_info" :key="order.id">
+       <order-item :order="order" :index="index"/>
+     </view>
+      <order-tab-bar/>
    </view>
 </template>
 
 <script>
 import OrderItem from "./order-item";
 import {url} from '@api/funeral';
+import OrderTabBar from "./order-tab-bar";
 export default {
   name: "worker",
-  components: {OrderItem},
+  components: {OrderTabBar, OrderItem},
   data(){
     return{
       params:{
@@ -49,7 +54,8 @@ export default {
           {title:'带出单',order_status:2},
       ],
       navIndex:0,
-      shop_order_info:[]
+      shop_order_info:[],
+      loading:false,
 
     }
   },
@@ -58,13 +64,15 @@ export default {
       this.params.order_type=e.order_type
     },
    async orderApi(){
-
+      this.loading=true
      const {data}= await this.$axios({url:url.order,data:{...this.params},method:'post'})
-     this.shop_order_info=data.shop_order_info
+     this.loading=false
+     this.shop_order_info=data?.shop_order_info?.map(item=>({...item,open:false}))
     },
     navClick(i,nav){
       this.navIndex=i
       this.params.order_status=nav.order_status
+
     }
   },
   watch:{
@@ -131,6 +139,21 @@ export default {
   .active{
     background: #d6efe6;
     border-color: #41ab85;
+  }
+}
+.on-more{
+  text-align: center;
+  position: relative;
+  top:20px;
+}
+.loading-wrap{
+  height: 80vh;
+  position: relative;
+  .u-loading-icon{
+    position: absolute;
+    top:30%;
+    left: 50%;
+    transform: translateY(-50%,-50%);
   }
 }
 </style>
