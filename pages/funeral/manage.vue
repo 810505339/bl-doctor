@@ -33,16 +33,57 @@
        <view>详情</view>
      </view>
      <view class="context">
-       <view></view>
-       <view></view>
-       <view></view>
+       <view class="item">
+         <view class="title">今日接单</view>
+         <view>{{data.operating_data.turnover_today }}</view>
+       </view>
+       <view class="item">
+         <view class="title">今日营业额</view>
+         <view>{{data.operating_data.orders_today}}</view>
+       </view>
+       <view class="item">
+         <view class="title">本月接单</view>
+         <view>{{data.operating_data.turnover_month }}</view>
+       </view>
      </view>
    </view>
+   <view class="management-wrap">
+     <view class="header">
+       <view class="title">店铺公告</view>
+       <view>编辑</view>
+     </view>
+     <view class="notice">
+       <u-icon :name="notice" size="20" class="icon"/>
+        {{data.notice}}
+     </view>
+   </view>
+
+   <view class="management-wrap">
+     <view class="header">
+       <view class="title">商家学院</view>
+       <view>全部</view>
+     </view>
+     <view class="business-list">
+       <view v-for="item in data.business_college" :key="item.id" class="business-item">
+         <view>
+           <view class="title">{{item.title}}</view>
+           <view class="time">{{item.updated_at}}</view>
+         </view>
+         <view class="img">
+           <u--image :src="item.cover_img"  width="118" height="75"/>
+         </view>
+       </view>
+
+     </view>
+   </view>
+
  </view>
 </template>
 
 <script>
 import {url} from '@/api/funeral'
+import notice from '@/static/funeral/notice.svg'
+
 export default {
   name: "manage",
   data() {
@@ -51,12 +92,14 @@ export default {
         {
           text: '订单管理',
           bg: '#2a82e4',
-          icon: require('@/static/funeral/dd.svg')
+          icon: require('@/static/funeral/dd.svg'),
+          url:''
         },
         {
           text: '商品管理',
           bg: '#41ab85',
-          icon: require('@/static/funeral/sp.svg')
+          icon: require('@/static/funeral/sp.svg'),
+          url:''
         },
         {
           text: '顾客管理',
@@ -68,16 +111,20 @@ export default {
           bg: '#00baad',
           icon: require('@/static/funeral/cw.svg')
         },
-      ]
+      ],
+      data:{},
+      notice:notice
     }
   },
   methods:{
-    funeral_shop_adminApi(){
-      this.$axios({url:url.funeral_shop_admin,method:'post'})
+   async funeral_shop_adminApi(){
+     const {data}=await this.$axios({url:url.funeral_shop_admin,method:'post'})
+     console.log(data)
+     this.data=data
     }
   },
   onLoad(){
-
+        this.funeral_shop_adminApi()
   }
 
 }
@@ -163,6 +210,67 @@ export default {
   }
   .context{
     background: #FFFFFF;
+    margin-top: 20rpx;
+    height: 160rpx;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+
+    .item{
+        view {
+          font-size:30rpx;
+        }
+      .title{
+        font-size: 24rpx;
+        font-weight: normal;
+      }
+      flex: 1;
+      text-align: center;
+    }
+  }
+  .notice{
+    background: #FFFFFF;
+    margin-top: 20rpx;
+    padding: 12rpx 10rpx 12rpx 70rpx;
+    border-radius: 20rpx;
+    position: relative;
+    .icon{
+      position: absolute;
+      left: 20rpx;
+      top:50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.business-list{
+  background: #FFFFFF;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+
+  .img{
+    width:120px ;
+    height: 80px;
+    /deep/ .u-image, /deep/ .u-transition{
+      height: 100%;
+    }
+
+  }
+  .title{
+
+  }
+
+  .business-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20rpx 0;
+    padding-bottom: 20rpx;
+    border-bottom: 1px #e5e5e5 solid;
+
   }
 }
 
