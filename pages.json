@@ -1041,6 +1041,30 @@
         "navigationStyle": "custom",
         "navigationBarTextStyle": "white"
       }
+    },
+    {
+      "path": "pages/funeral/new-commodity",
+      "style": {
+        "navigationBarTitleText": "添加商品",
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/funeral/classification",
+      "style": {
+        "navigationBarTitleText": "分类管理",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
+    },
+    {
+      "path": "pages/funeral/classification-add",
+      "style": {
+        "navigationBarTitleText": "添加分类",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#FFFFFF"
+      }
     }
   ],
   "globalStyle": {

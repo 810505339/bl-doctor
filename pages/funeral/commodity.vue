@@ -91,7 +91,8 @@ export default {
       },
       dataList:[],
       headerText:'',
-      tabIndex:0
+      tabIndex:0,
+      finish:false
 
     }
   },
@@ -110,14 +111,25 @@ export default {
    async  shopListChange(){
       const {data}=await this.shopListApi()
      this.dataList=data
+     this.finish=false
    },
    async vanClick(i){
     },
     async scrolltolower(){
       //todo
 
+      if(this.finish)
+      {
+        return
+      }
+
       this.shopListParams.page+=1;
       const {data}= await this.shopListApi()
+      if(data.length<=0)
+      {
+        this.finish=true
+        return
+      }
       this.dataList=this.dataList.concat(data)
     },
    async tabsChange(e){

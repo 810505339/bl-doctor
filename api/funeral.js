@@ -7,5 +7,8 @@ export const url = {
     orderReceiving:'/api/order/funeral_order_receiving',
     funeral_shop_admin:'/api/order/funeral_shop_admin',// shop_admin
     classify:'/api/shop/get_shop_classify',// shop_admin
-    shopList:'/api/shop/shop_list'
+    shopList:'/api/shop/shop_list',
+    get_shop_classify: '/api/shop/get_shop_classify',
+    del_shop_classify:'/api/shop/del_shop_classify',
+    add_shop_classify:'/api/shop/add_shop_classify'
 }
